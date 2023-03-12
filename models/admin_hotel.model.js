@@ -7,6 +7,7 @@ const adminHotelSchema = new Schema({
         type: Number,
         unique: true,
         required: true,
+        ref: "hotel",
     },
     hotelName: {
         type: String,

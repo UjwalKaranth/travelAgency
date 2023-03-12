@@ -17,4 +17,11 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+const createUser = asyncWrapper(async (req, res, next) => {
+    const { id: userId } = req.params;
+    req.body.user_id = String(userId)
+    const user = await Candidates.create(req.body);
+    res.status(400).json({ user });
+  });
+
 module.exports = router;
