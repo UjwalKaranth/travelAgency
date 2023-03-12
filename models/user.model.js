@@ -11,13 +11,11 @@ const userSchema = new Schema({
     userName: {
         type: String,
         required: true,
-        unique: false,
         trim: true,
     },
     resId: {
         type: Number,
         required: true,
-        unique: true,
         ref: "vehicleReservation",
     },
     userEmail: {
@@ -45,7 +43,6 @@ const userSchema = new Schema({
     veg: {
         type: String,
         required: true,
-        unique: false,
         maxLength: 1,
     },
 },
@@ -56,4 +53,4 @@ const userSchema = new Schema({
 
 const User = mongoose.model("User", userSchema);
 
-model.exports = User;
+module.exports = User;

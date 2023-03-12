@@ -6,22 +6,39 @@ router.route('/').get((req, res) => {
     .then(users => res.json(users))
     .catch(err => res.status(400).json('Error: ' + err));
 });
+router.route('/:id').get((req, res) => {
+  User.findById(req.params.id)
+    .then(users => res.json(users))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 router.route('/add').post((req, res) => {
-  const username = req.body.username;
+  const userId = req.body.userId;
+  const userName = req.body.userName;
+  const resId = req.body.resId;
+  const userEmail = req.body.userEmail;
+  const userPhNo = req.body.userPhNo;
+  const userCity = req.body.userCity;
+  const budget = req.body.budget;
+  const veg = req.body.veg;
 
-  const newUser = new User({username});
+  const newUser = new User({
+    userId,
+    userName,
+    resId,
+    userEmail,
+    userPhNo,
+    userCity,
+    budget,
+    veg
+  });
+  console.log(userName)
 
   newUser.save()
     .then(() => res.json('User added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-const createUser = asyncWrapper(async (req, res, next) => {
-    const { id: userId } = req.params;
-    req.body.user_id = String(userId)
-    const user = await Candidates.create(req.body);
-    res.status(400).json({ user });
-  });
+
 
 module.exports = router;

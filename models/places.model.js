@@ -36,4 +36,4 @@ const placesSchema = new Schema({
 
 const Place = mongoose.model("Driver", PlaceSchema);
 
-model.exports = Place;
+module.exports = Place;

@@ -51,6 +51,6 @@ const travelSchema = new Schema({
 
 const Travel = mongoose.model("Travel", travelSchema);
 
-model.exports = Travel;
+module.exports = Travel;
 
 

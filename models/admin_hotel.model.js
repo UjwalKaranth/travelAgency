@@ -35,5 +35,5 @@ const adminHotelSchema = new Schema({
     
     const AdminHotel = mongoose.model("Admin Hotel", adminHotelSchema);
     
-    model.exports = adminHotel;
+    module.exports = adminHotel;
     

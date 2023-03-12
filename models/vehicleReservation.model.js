@@ -21,4 +21,4 @@ const vehicleReservationSchema = new Schema({
 
 const VehicleReservation = mongoose.model("Vehicle Reservation", vehicleReservationSchema);
 
-model.exports = VehicleReservation;
+module.exports = VehicleReservation;
